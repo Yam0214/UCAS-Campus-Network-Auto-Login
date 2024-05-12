@@ -18,7 +18,7 @@ def parse_args():
     parser.add_argument("--log_path", type=str, default=".auto_login.log")
     parser.add_argument("--config_path", type=str, default="./config.json")
     parser.add_argument("--debug", action="store_true")
-    parser.add_argument("--check_url", type="str", default="http://www.bilibili.com")
+    parser.add_argument("--check_url", type=str, default="http://www.bilibili.com")
     parser.add_argument("--login_url", type=str, default="http://124.16.81.61")
     parser.add_argument("--username", type=str, default="")
     parser.add_argument("--password", type=str, default="")
