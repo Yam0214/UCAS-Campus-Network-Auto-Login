@@ -13,7 +13,6 @@
 ├── autologout.py  # 自动登出脚本例程
 ├── config.json    # 账户信息写在该文件里
 ├── LICENSE
-├── my_env         # 附带的 python 环境
 ├── README.md
 ```
 
