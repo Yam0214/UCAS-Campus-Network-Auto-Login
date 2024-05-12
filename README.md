@@ -17,6 +17,10 @@
 ├── README.md
 ```
 
+依赖
+- selenium==3.141.0
+- beautifulsoup4==4.12.2
+
 ## ubuntu
 
 1. 安装对应版本的chrome浏览器和chromedriver [download](https://getwebdriver.com/)
@@ -24,7 +28,7 @@
 3. 手动运行脚本或设置自动计划 [ref](https://zhuanlan.zhihu.com/p/350671948)
 
 ```shell
-./my_env/bin/python autologin.py --driver_path ./chromedriver --log_path ./.log.auto_login --config_path ./config.json
+python autologin.py --driver_path ./chromedriver --log_path ./.log.auto_login --config_path ./config.json
 ```
 - 参数解析
     - `--driver_path` /path/to/chromedriver/
@@ -43,7 +47,7 @@
 3. 手动运行脚本
 
 ```cmd
-\my_env\bin\python autologin.py --driver_path chromedriver.exe --log_path log.auto_login --config_path config.json
+python autologin.py --driver_path chromedriver.exe --log_path log.auto_login --config_path config.json
 ```
 - 参数解析同ubuntu
 
@@ -53,7 +57,7 @@
 ```bat
 @echo off
 
-start my_env\bin\python autologin.py --driver_path \path\to\chromedriver.exe --log_path log.auto_login --config_path config.json
+start path/to/python autologin.py --driver_path \path\to\chromedriver.exe --log_path log.auto_login --config_path config.json
 
 exit
 ```
