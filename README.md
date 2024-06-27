@@ -30,6 +30,7 @@
 python autologin.py --driver_path ./chromedriver --log_path ./.log.auto_login --config_path ./config.json
 ```
 - 参数解析
+    - `--chrome_path` /path/to/chrome/, 指定chrome二进制文件位置
     - `--driver_path` /path/to/chromedriver/
     - `--config_path` /path/to/config.json/，config文件中填写账号密码
     - `--log_path` /path/to/log/ 日志文件保存路径
