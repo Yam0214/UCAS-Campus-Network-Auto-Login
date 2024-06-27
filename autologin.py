@@ -14,6 +14,9 @@ from selenium import webdriver
 def parse_args():
     parser = argparse.ArgumentParser()
 
+    parser.add_argument(
+        "--chrome_path", type=str, help="path to your chrome binary location"
+    )
     parser.add_argument("--driver_path", type=str, default="./chromedriver")
     parser.add_argument("--log_path", type=str, default=".auto_login.log")
     parser.add_argument("--config_path", type=str, default="./config.json")
@@ -42,6 +45,8 @@ class AutoLogin:
         self.password = json_dict.get("password", args.password)  # 密码
         # 联网判断地址
         self.check_url = args.check_url
+        # 浏览器位置
+        self.chrome_path = args.chrome_path
 
         # 日志
         logging.basicConfig(
@@ -63,7 +68,12 @@ class AutoLogin:
         content = response.content.decode()
         soup = BeautifulSoup(content, features="lxml")
         if self._debug:
-            print("响应页面标题：", soup.title.text, "\n校园网登陆页面：", soup.title.text == "深澜软件")
+            print(
+                "响应页面标题：",
+                soup.title.text,
+                "\n校园网登陆页面：",
+                soup.title.text == "深澜软件",
+            )
         if soup.title.text == "深澜软件":
             # 或者跳转深蓝软件
             logging.warning("failed linking to {}".format(self.check_url))
@@ -77,6 +87,8 @@ class AutoLogin:
         # 配置浏览器
         options = Options()
         options.add_argument("headless")  # 隐藏浏览器
+        if self.chrome_path is not None:
+            options.binary_location = self.chrome_path
         # 获取驱动
         driver = webdriver.Chrome(executable_path=self.driver_path, options=options)
         # 启动浏览器
